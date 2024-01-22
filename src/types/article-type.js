@@ -14,7 +14,7 @@
  * type untuk article list dari api, hasil gabungan antara type Article dengan CommonListObject
  *
  * @typedef {object} ArticleList
- * @property {Article} posts
+ * @property {Article[]} posts
  * @property {number} total total records
  * @property {number} skip number of skipped records, useful for pagination
  * @property {number} limit limit of records, useful for pagination

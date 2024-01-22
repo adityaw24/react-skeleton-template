@@ -48,6 +48,6 @@ export function errorPopup(err) {
 	Swal.fire({
 		icon: "error",
 		title: "Error",
-		text: err
+		text: err || 'Something went wrong :('
 	});
 }

@@ -80,7 +80,7 @@ function SidebarMenu () {
 											{menu?.childrens?.map(submenu => {
 												const SubmenuIcon = submenu.icon
 												return (
-													<li className="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+													<li key={submenu.title} className="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
 														<Link className={`
 																${submenu.path === location.pathname && 'text-primary/75'}
 																w-full inline-flex items-center

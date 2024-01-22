@@ -41,9 +41,7 @@ function Login() {
 			navigate('/')
 		}
 		catch (err) {
-			if (err?.response?.data?.message) errorPopup(err?.response?.data?.message)
-			else errorPopup('Something went wrong!')
-			console.log(err)
+			errorPopup(err?.response?.data?.message)
 		}
 		finally {
 			setIsSubmitting(false)

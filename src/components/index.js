@@ -7,3 +7,6 @@ export { default as RadioInput } from './form/RadioInput'
 export { default as Card } from './ui/Card'
 export { default as LoadingDots } from './ui/LoadingDots'
 export { default as PageTitle } from './ui/PageTitle'
+
+export * from './table/BasicTable'
+export { default as DataTable } from './table/DataTable'
