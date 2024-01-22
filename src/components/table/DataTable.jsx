@@ -19,8 +19,8 @@ import { ChevronLeft, ChevronRight } from "lucide-react"
 function DataTable({
 	columns,
 	data,
+	totalData,
 	pagination,
-	totalRecords,
 	onPaginationChange,
 	isLoading,
 }) {
@@ -31,7 +31,7 @@ function DataTable({
 		getPaginationRowModel: getPaginationRowModel(),
 		manualPagination: true,
 		onPaginationChange,
-		pageCount: Math.round(totalRecords / pagination.pageSize),
+		pageCount: Math.round(totalData / pagination.pageSize),
 		state: { pagination },
 	})
 

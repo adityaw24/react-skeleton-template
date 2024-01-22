@@ -10,7 +10,7 @@ import { errorPopup } from "~/lib/swal"
 function ArticleListPage () {
 	const [data, setData] = useState([])
 	const [isLoading, setIsLoading] = useState(true)
-	const [totalRecords, setTotalRecords] = useState(0)
+	const [totalData, setTotalRecords] = useState(0)
 	const { limit, skip, pagination, setPagination } = usePagination()
 
 
@@ -43,7 +43,7 @@ function ArticleListPage () {
 			<DataTable
 				columns={columns}
 				data={data}
-				totalRecords={totalRecords}
+				totalData={totalData}
 				pagination={pagination}
 				onPaginationChange={setPagination}
 				isLoading={isLoading}
