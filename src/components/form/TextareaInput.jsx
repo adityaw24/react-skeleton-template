@@ -2,19 +2,23 @@ import { forwardRef } from "react";
 import mergeClass from "~/lib/mergeClass";
 
 /**
- * @memberof Component.Form
- * @alias TextareaInput
+ * @typedef {object} TextareaInputProps
  *
- * @param {object} props
- * @param {string} [props.label] 		- text yang muncul di atas input
- * @param {string} [props.helper] 		- text bantuan yang muncul di atas kanan input
- * @param {string} [props.error] 		- text merah yang muncul di bawah input
- * @param {string} [props.inputClass] 	- html class untuk tag input
- * @param {string} [props.className] 	- html class untuk wrapper
- * @param {object} [props.restProps] 	- props selain yang diatas yang akan diteruskan ke input
+ * @prop {string} [label] 		- text yang muncul di atas input
+ * @prop {string} [helper] 		- text bantuan yang muncul di atas kanan input
+ * @prop {string} [error] 		- text merah yang muncul di bawah input
+ * @prop {string} [inputClass] 	- html class untuk tag input
+ * @prop {string} [className] 	- html class untuk wrapper
+ */
+
+/**
+ * @memberof 	Component.Form
+ * @alias 		TextareaInput
+ *
+ * @param {TextareaInputProps & React.TextareaHTMLAttributes<HTMLTextAreaElement>} props
  * @param {React.RefObject} ref
  *
- *  @example
+ * @example
  * // Basic usage
  * <TextareaInput label="contoh textarea" />
  *

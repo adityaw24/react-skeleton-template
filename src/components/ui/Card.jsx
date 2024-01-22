@@ -1,19 +1,23 @@
 import mergeClass from "~/lib/mergeClass";
 
 /**
+ * @typedef {object} 		CardProps
+ * @prop {string} 			[title] 			- Judul cardnya, muncul di atas kiri
+ * @prop {string} 			[innerClass] 		- Class untuk body/daleman dari card
+ * @prop {string} 			[className] 		- Class untuk wrapper/outer dari card
+ * @prop {React.ReactNode} 	[children] 			- Isi dari card
+ * @prop {React.ReactNode} 	[HeaderAction] 		- Slot action, biasa diisi dengan button, muncul di atas kanan
+ * @prop {React.ReactNode} 	[FooterAction] 		- Slot action, biasa diisi dengan button, muncul di bawah kanan
+ * @prop {React.ReactNode} 	[Figure] 			- Gambar utama dari cardnya
+ */
+
+/**
  * Card yang berfungsi sebagai container/wrapper dari beberapa component
  *
- * @memberof Component.UI
- * @alias Card
+ * @memberof 	Component.UI
+ * @alias 		Card
  *
- * @param {object} 			props
- * @param {string} 			[props.title] 			- Judul cardnya, muncul di atas kiri
- * @param {string} 			[props.innerClass] 		- Class untuk body/daleman dari card
- * @param {string} 			[props.className] 		- Class untuk wrapper/outer dari card
- * @param {React.ReactNode} [props.children] 		- Isi dari card
- * @param {React.ReactNode} [props.HeaderAction] 	- Slot action, biasa diisi dengan button, muncul di atas kanan
- * @param {React.ReactNode} [props.FooterAction] 	- Slot action, biasa diisi dengan button, muncul di bawah kanan
- * @param {React.ReactNode} [props.Figure] 			- Gambar utama dari cardnya
+ * @param {CardProps} props
  *
  * @example
  * // Basic usage

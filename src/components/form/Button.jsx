@@ -2,20 +2,24 @@ import mergeClass from "~/lib/mergeClass";
 import iconConf from "~/lib/iconConf";
 
 /**
+ * @typedef {object} ButtonProps
+ *
+ * @prop {string}					[title] 	- Text yang akan muncul pada button
+ * @prop {string} 					[className] - html class
+ * @prop {string} 					[href] 		- link yang akan dibuka ketika button ditekan
+ * @prop {boolean} 					[loading] 	- akan memunculkan animasi loading ketika true
+ * @prop {boolean} 					[disabled] 	- button tidak bisa ditekan ketika true
+ * @prop {React.FunctionComponent}	[Icon] 		- icon dari [lucide icon]{@link https://lucide.dev/}
+ */
+
+/**
  * Component button, dipakai seperti tag "button" atau "a".
  * Untuk styling lebih lengkap bisa dilihat di [DaisyUI]{@link https://daisyui.com/components/button/}
  *
- * @memberof Component.Form
- * @alias Button
+ * @memberof 	Component.Form
+ * @alias 		Button
  *
- * @param {object}		props
- * @param {string}		[props.title] 		- Text yang akan muncul pada button
- * @param {string} 		[props.className] 	- html class
- * @param {string} 		[props.href] 		- link yang akan dibuka ketika button ditekan
- * @param {boolean} 	[props.loading] 	- akan memunculkan animasi loading ketika true
- * @param {boolean} 	[props.disabled] 	- button tidak bisa ditekan ketika true
- * @param {React.FunctionComponent} [props.Icon] - icon dari [lucide icon]{@link https://lucide.dev/}
- * @param {object}		[props.restProps] 	- props selain yang diatas yang akan diteruskan ke button
+ * @param {ButtonProps & React.ButtonHTMLAttributes<HTMLButtonElement> & React.AnchorHTMLAttributes<HTMLAnchorElement>}	props
  *
  * @example
  * // Basic usage
@@ -52,6 +56,7 @@ function Button({
 		<Tag
 			disabled={disabled || loading ? true : undefined}
 			className={mergeClass("btn", className)}
+			href={href || undefined}
 			{...restProps}
 		>
 			{ loading

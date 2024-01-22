@@ -1,11 +1,15 @@
 /**
+ * @typedef {object} 	LoadingDotsProps
+ * @prop {string} 		[label] 			- Text yang muncul di kanan animasi loading
+ */
+
+/**
  * Component yang menampilkan animasi loading
  *
- * @memberof Component.UI
- * @alias LoadingDots
+ * @memberof 	Component.UI
+ * @alias 		LoadingDots
  *
- * @param {object} props
- * @param {string} [props.label]
+ * @param {LoadingDotsProps} props
  *
  * @example
  * // Basic usage

@@ -8,19 +8,23 @@ import mergeClass from "~/lib/mergeClass";
 */
 
 /**
- * @memberof Component.Form
- * @alias SelectInput
+ * @typedef {object} SelectInputProps
  *
- * @param {object} 			props
- * @param {string} 			[props.label] 		- text yang muncul di atas input
- * @param {string} 			[props.helper] 		- text bantuan yang muncul di atas kanan input
- * @param {string} 			[props.placeholder] - placeholder jika tidak ada option yang terpilih
- * @param {string} 			[props.value] 		- value yang terpilih dari option yang tersedia
- * @param {string} 			[props.error] 		- text merah yang muncul di bawah input
- * @param {string} 			[props.inputClass] 	- html class untuk tag input
- * @param {string} 			[props.className] 	- html class untuk wrapper
- * @param {SelectOption[]} 	[props.options] 	- [SelectOption]{@link TypeDefinition#SelectOption} pilihan yang akan ditampilkan
- * @param {object} 			[props.restProps] 	- props selain yang diatas yang akan diteruskan ke input
+ * @prop {string} 			[label] 		- text yang muncul di atas input
+ * @prop {string} 			[helper] 		- text bantuan yang muncul di atas kanan input
+ * @prop {string} 			[placeholder] 	- placeholder jika tidak ada option yang terpilih
+ * @prop {string} 			[value] 		- value yang terpilih dari option yang tersedia
+ * @prop {string} 			[error] 		- text merah yang muncul di bawah input
+ * @prop {string} 			[inputClass] 	- html class untuk tag input
+ * @prop {string} 			[className] 	- html class untuk wrapper
+ * @prop {SelectOption[]} 	[options] 		- pilihan yang akan ditampilkan
+ */
+
+/**
+ * @memberof 	Component.Form
+ * @alias 		SelectInput
+ *
+ * @param {SelectInputProps & React.SelectHTMLAttributes<HTMLSelectElement>} props
  * @param {React.RefObject} ref
  *
  * @example

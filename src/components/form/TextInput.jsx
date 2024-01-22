@@ -5,15 +5,15 @@ import mergeClass from "~/lib/mergeClass";
  * @typedef {object} TextInputProps
  *
  * @param {string} [label] 		- text yang muncul di atas input
- * @param {string} [helper] 		- text bantuan yang muncul di atas kanan input
+ * @param {string} [helper] 	- text bantuan yang muncul di atas kanan input
  * @param {string} [error] 		- text merah yang muncul di bawah input
- * @param {string} [inputClass] 	- html class untuk tag input
+ * @param {string} [inputClass] - html class untuk tag input
  * @param {string} [className] 	- html class untuk wrapper
  */
 
 /**
- * @memberof Component.Form
- * @alias TextInput
+ * @memberof 	Component.Form
+ * @alias 		TextInput
  *
  * @param {TextInputProps & React.InputHTMLAttributes<HTMLInputElement>} props
  * @param {React.RefObject} ref

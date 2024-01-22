@@ -8,19 +8,23 @@ import mergeClass from "~/lib/mergeClass";
 */
 
 /**
- * @memberof Component.Form
- * @alias RadioInput
+ * @typedef {object} RadioInputProps
  *
- * @param {object} 			props
- * @param {string} 			props.name 			- name untuk radio input, wajib diisi
- * @param {string} 			[props.label] 		- text yang muncul di atas input
- * @param {string} 			[props.helper] 		- text bantuan yang muncul di atas kanan input
- * @param {string} 			[props.value] 		- value yang terpilih dari option yang tersedia
- * @param {string} 			[props.error] 		- text merah yang muncul di bawah input
- * @param {string} 			[props.inputClass] 	- html class untuk tag input
- * @param {string} 			[props.className] 	- html class untuk wrapper
- * @param {RadioOption[]} 	[props.options] 	- pilihan yang akan ditampilkan
- * @param {object} 			[props.restProps] 	- props selain yang diatas yang akan diteruskan ke input
+ * @prop {string} 			name 			- name untuk radio input, wajib diisi
+ * @prop {string} 			[label] 		- text yang muncul di atas input
+ * @prop {string} 			[helper] 		- text bantuan yang muncul di atas kanan input
+ * @prop {string} 			[value] 		- value yang terpilih dari option yang tersedia
+ * @prop {string} 			[error] 		- text merah yang muncul di bawah input
+ * @prop {string} 			[inputClass] 	- html class untuk tag input
+ * @prop {string} 			[className] 	- html class untuk wrapper
+ * @prop {RadioOption[]} 	[options] 	- pilihan yang akan ditampilkan
+ */
+
+/**
+ * @memberof 	Component.Form
+ * @alias 		RadioInput
+ *
+ * @param {RadioInputProps & React.InputHTMLAttributes<HTMLInputElement>} props
  * @param {React.RefObject} ref
  *
  * @example
