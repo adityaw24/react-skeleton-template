@@ -46,6 +46,14 @@ function SidebarMenu () {
 					<li key={menu.title} className="relative px-6 py-3">
 						{menu.hasOwnProperty('childrens')
 							? <>
+
+								{menu.childrens?.some(submenu => submenu.path === location.pathname)
+									? <span
+										className="absolute inset-y-0 left-0 w-1 bg-primary rounded-tr-lg rounded-br-lg"
+										aria-hidden="true"
+									></span>
+								: null }
+
 								<button
 									onClick={() => toggleMenu(menu)}
 									aria-haspopup="true"
@@ -74,7 +82,7 @@ function SidebarMenu () {
 												return (
 													<li className="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
 														<Link className={`
-																${submenu.path === location.pathname && 'text-gray-800 dark:text-gray-100'}
+																${submenu.path === location.pathname && 'text-primary/75'}
 																w-full inline-flex items-center
 															`}
 															to={submenu.path}
@@ -91,6 +99,13 @@ function SidebarMenu () {
 								</>
 
 							: <>
+								{menu.path === location.pathname
+									? <span
+										className="absolute inset-y-0 left-0 w-1 bg-primary rounded-tr-lg rounded-br-lg"
+										aria-hidden="true"
+									></span>
+								: null}
+
 								<Link className={`
 										${menu.path === location.pathname && 'text-gray-800 dark:text-gray-100'}
 										inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200
