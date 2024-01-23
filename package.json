@@ -13,7 +13,8 @@
   "dependencies": {
     "clean-jsdoc-theme": "^4.2.17",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-hot-toast": "^2.4.1"
   },
   "devDependencies": {
     "@hookform/resolvers": "^3.3.4",

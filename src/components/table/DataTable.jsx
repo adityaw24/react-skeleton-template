@@ -41,8 +41,10 @@ function DataTable({
 				{table.getHeaderGroups().map((headerGroup) => (
 					<TableRow key={headerGroup.id}>
 						{headerGroup.headers.map((header) => {
+							const receivedSize = header.column.getSize()
+							const colWidth = receivedSize != 150 ? receivedSize : undefined // 150 default size
 							return (
-								<TableHead key={header.id}>
+								<TableHead key={header.id} width={colWidth}>
 									{header.isPlaceholder
 										? null
 										: flexRender(

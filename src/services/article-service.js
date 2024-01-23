@@ -19,8 +19,9 @@ export async function getArticleList(requestParams) {
  * @param {string|number} articleId
  * @returns {Promise< Article >}
  */
-export function getArticleDetail (articleId) {
-	return axiosInstance.get('https://dummyjson.com/posts/' + articleId)
+export async function getArticleDetail (articleId) {
+	const res = await axiosInstance.get('https://dummyjson.com/posts/' + articleId)
+	return res.data
 }
 
 
@@ -29,8 +30,9 @@ export function getArticleDetail (articleId) {
  * @param {Article} formData
  * @returns {Promise< Article >}
  */
-export function createArticle (formData) {
-	return axiosInstance.post('https://dummyjson.com/posts/add', formData)
+export async function createArticle (formData) {
+	const res = await axiosInstance.post('https://dummyjson.com/posts/add', formData)
+	return res.data
 }
 
 /**
@@ -39,8 +41,9 @@ export function createArticle (formData) {
  * @param {string|number} articleId
  * @returns {Promise< Article >}
  */
-export function updateArticle (formData, articleId) {
-	return axiosInstance.put('https://dummyjson.com/posts/' + articleId, formData)
+export async function updateArticle (formData, articleId) {
+	const res = await axiosInstance.put('https://dummyjson.com/posts/' + articleId, formData)
+	return res.data
 }
 
 /**
@@ -48,6 +51,7 @@ export function updateArticle (formData, articleId) {
  * @param {string|number} articleId
  * @returns {Promise< Article >}
  */
-export function deleteArticle (articleId) {
-	return axiosInstance.delete('https://dummyjson.com/posts/' + articleId)
+export async function deleteArticle (articleId) {
+	const res = await axiosInstance.delete('https://dummyjson.com/posts/' + articleId)
+	return res.data
 }

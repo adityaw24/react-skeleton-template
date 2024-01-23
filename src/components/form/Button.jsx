@@ -1,12 +1,13 @@
 import mergeClass from "~/lib/mergeClass";
 import iconConf from "~/lib/iconConf";
+import { Link } from "react-router-dom";
 
 /**
  * @typedef {object} ButtonProps
  *
  * @prop {string}					[title] 	- Text yang akan muncul pada button
  * @prop {string} 					[className] - html class
- * @prop {string} 					[href] 		- link yang akan dibuka ketika button ditekan
+ * @prop {string} 					[to] 		- link yang akan dibuka ketika button ditekan
  * @prop {boolean} 					[loading] 	- akan memunculkan animasi loading ketika true
  * @prop {boolean} 					[disabled] 	- button tidak bisa ditekan ketika true
  * @prop {React.FunctionComponent}	[Icon] 		- icon dari [lucide icon]{@link https://lucide.dev/}
@@ -44,19 +45,19 @@ import iconConf from "~/lib/iconConf";
 function Button({
 	title = '',
 	className = '',
-	href = '',
+	to = '',
 	loading = false,
 	disabled = false,
 	Icon = null,
 	...restProps
 }) {
-	const Tag = !href ? 'button' : 'a'
+	const Tag = !to ? 'button' : Link
 
 	return <>
 		<Tag
 			disabled={disabled || loading ? true : undefined}
 			className={mergeClass("btn", className)}
-			href={href || undefined}
+			to={to || undefined}
 			{...restProps}
 		>
 			{ loading

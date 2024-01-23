@@ -9,7 +9,7 @@ import { yupResolver } from "@hookform/resolvers/yup"
 
 import { Button, TextInput } from "~/components"
 import { loginProcess } from "~/services/auth-service"
-import { errorPopup } from "~/lib/swal"
+import { errorPopup } from "~/lib/popup"
 import useAuthStore from '~/stores/auth-store';
 import { useNavigate } from 'react-router-dom';
 

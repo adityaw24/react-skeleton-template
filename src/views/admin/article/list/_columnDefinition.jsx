@@ -13,12 +13,24 @@ const columns = [
 	{
 		id: 'actions',
 		header: 'Actions',
-		cell: ({ row }) =>
+		size: 190,
+		cell: ({ row }) => <section className="flex gap-3">
 			<Button
-				title="test action"
+				title="Detail"
 				onClick={() => alert('id: ' + row.original.id)}
-				className="btn-primary btn-xs"
+				className="btn-accent btn-xs"
 			/>
+			<Button
+				title="Edit"
+				to={'/article/form/' + row.original.id}
+				className="btn-warning btn-xs"
+			/>
+			<Button
+				title="Delete"
+				onClick={() => alert('id: ' + row.original.id)}
+				className="btn-error btn-xs"
+			/>
+		</section>
 	}
 ]
 

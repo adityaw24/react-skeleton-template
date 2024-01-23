@@ -39,15 +39,19 @@ function Card ({
 			{Figure}
 			<div className="card-body gap-3">
 				{ !!title || !!HeaderAction
-					? <section className="flex items-center justify-between">
-						{ !!title
-							? <h2 className="card-title">
-								{title}
-							</h2>
-						: null }
+					? <>
+						<section className="flex items-center justify-between">
+							{ !!title
+								? <h2 className="card-title">
+									{title}
+								</h2>
+							: null }
 
-						{HeaderAction}
-					</section>
+							{HeaderAction}
+						</section>
+
+						<hr className="mt-1 mb-4 dark:border-gray-600" />
+					</>
 				: null }
 
 				<section className={innerClass}>

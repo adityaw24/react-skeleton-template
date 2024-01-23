@@ -4,11 +4,11 @@ import mergeClass from "~/lib/mergeClass";
 /**
  * @typedef {object} TextInputProps
  *
- * @param {string} [label] 		- text yang muncul di atas input
- * @param {string} [helper] 	- text bantuan yang muncul di atas kanan input
- * @param {string} [error] 		- text merah yang muncul di bawah input
- * @param {string} [inputClass] - html class untuk tag input
- * @param {string} [className] 	- html class untuk wrapper
+ * @prop {string} [label] 		- text yang muncul di atas input
+ * @prop {string} [helper] 		- text bantuan yang muncul di atas kanan input
+ * @prop {string} [error] 		- text merah yang muncul di bawah input
+ * @prop {string} [inputClass] 	- html class untuk tag input
+ * @prop {string} [className] 	- html class untuk wrapper
  */
 
 /**

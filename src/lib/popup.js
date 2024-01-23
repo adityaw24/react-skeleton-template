@@ -1,3 +1,4 @@
+import toast from 'react-hot-toast';
 import Swal from 'sweetalert2'
 
 /**
@@ -45,9 +46,13 @@ export function confirmDeletePopup(callbacks) {
 export function errorPopup(err) {
 	if (import.meta.env.DEV) console.log(err)
 
-	Swal.fire({
-		icon: "error",
-		title: "Error",
-		text: err || 'Something went wrong :('
-	});
+	toast.error(err || 'Something went wrong :(', {
+		duration: 4000
+	})
+
+	// Swal.fire({
+	// 	icon: "error",
+	// 	title: "Error",
+	// 	text: err || 'Something went wrong :('
+	// });
 }

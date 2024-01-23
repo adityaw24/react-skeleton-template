@@ -12,6 +12,7 @@ const adminRouter = [
 
 		{ path: '/article/list', element: <ArticleListPage /> },
 		{ path: '/article/form', element: <ArticleFormPage /> },
+		{ path: '/article/form/:editedId', element: <ArticleFormPage /> },
 	]},
 ]
 
