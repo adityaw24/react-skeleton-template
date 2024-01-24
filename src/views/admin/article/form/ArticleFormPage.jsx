@@ -42,7 +42,7 @@ function ArticleFormPage () {
 			if (isEditing) await updateArticle(payload, editedId)
 			else await createArticle(payload)
 
-			toast.success(`Successfully ${isEditing ? 'updated' : 'created'}!`)
+			toast.success(`Record successfully ${isEditing ? 'updated' : 'created'}!`)
 			navigate('/article/list')
 		}
 		catch (error) {

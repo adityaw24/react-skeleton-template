@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react"
 import { Card, PageTitle, DataTable, Button } from "~/components"
-import { getArticleList } from "~/services/article-service"
+import { deleteArticle, getArticleList } from "~/services/article-service"
 
-import columns from "./_columnDefinition"
+import setupColumns from "./_setupColumns"
 import { usePagination } from "~/lib/usePagination"
-import { errorPopup } from "~/lib/popup"
+import { confirmDeletePopup, errorPopup } from "~/lib/popup"
 import { Plus } from "lucide-react"
 
 
@@ -14,7 +14,7 @@ function ArticleListPage () {
 	const [totalData, setTotalRecords] = useState(0)
 	const { limit, skip, pagination, setPagination } = usePagination()
 
-
+	// fetch inital data logic =============================
 	const getData = async () => {
 		try {
 			setIsLoading(true)
@@ -37,6 +37,16 @@ function ArticleListPage () {
 		getData()
 	}, [limit, skip])
 
+
+	// datatable columns logic =========================
+	const handleDelete = (rowId) => () => {
+		confirmDeletePopup({
+			onConfirm: () => deleteArticle(rowId),
+			onSuccess: () => getData()
+		})
+	}
+
+	const columns = setupColumns({ handleDelete })
 
 	return <>
 		<PageTitle title="Article List" />

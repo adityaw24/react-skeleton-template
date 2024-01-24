@@ -4,8 +4,8 @@ import Swal from 'sweetalert2'
 /**
  * fungsi untuk konfirmasi sebelum hapus suatu data
  * @param {object} callbacks
- * @param {function} callbacks.onConfirm - fungsi ketika tombol konfirmasi ditekan
- * @param {function} [callbacks.onSuccess] - optional, fungsi ketika onConfirm() berhasil
+ * @param {Function} callbacks.onConfirm - fungsi ketika tombol konfirmasi ditekan
+ * @param {Function} [callbacks.onSuccess] - optional, fungsi ketika onConfirm() berhasil
  */
 export function confirmDeletePopup(callbacks) {
 	Swal.fire({
