@@ -3,7 +3,7 @@ import generateRequestParams from "~/lib/generateRequestParams"
 
 /**
  * fungsi untuk mendapatkan list artikel
- * @param {RequestParams} requestParams
+ * @param {ListDataRequestOptions} requestParams
  * @returns {Promise< ArticleList >}
  */
 export async function getArticleList(requestParams) {

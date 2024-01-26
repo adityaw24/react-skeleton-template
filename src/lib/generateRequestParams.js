@@ -1,7 +1,7 @@
 /**
  * fungsi untuk mapping parameter request sesuai dengan spec API
- * @param {RequestParams} requestParams
- * @returns
+ * @param {ListDataRequestOptions} requestParams
+ * @returns {ListDataRequestParams}
  */
 export default function generateRequestParams (requestParams) {
 	let params = {}

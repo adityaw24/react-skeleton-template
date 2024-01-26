@@ -3,26 +3,30 @@ import { Card, PageTitle, DataTable, Button } from "~/components"
 import { deleteArticle, getArticleList } from "~/services/article-service"
 
 import setupColumns from "./_setupColumns"
-import { usePagination } from "~/lib/usePagination"
 import { confirmDeletePopup, errorPopup } from "~/lib/popup"
 import { Plus } from "lucide-react"
+import FullDataTable from "~/components/table/FullDataTable"
 
 
 function ArticleListPage () {
-	const [data, setData] = useState([])
-	const [isLoading, setIsLoading] = useState(true)
+	const [tableData, setTableData] = useState([])
 	const [totalData, setTotalRecords] = useState(0)
-	const { limit, skip, pagination, setPagination } = usePagination()
+	const [isLoading, setIsLoading] = useState(true)
 
 	// fetch inital data logic =============================
-	const getData = async () => {
+
+	/** @type {GetTableData} */
+	const getTableData = async ({ pageSize, pageSkip }) => {
 		try {
 			setIsLoading(true)
 			const articles = await getArticleList({
-				pagination: { limit, skip }
+				pagination: {
+					limit: pageSize,
+					skip: pageSkip
+				}
 			})
 
-			setData(articles.posts)
+			setTableData(articles.posts)
 			setTotalRecords(articles.total)
 		}
 		catch (err) {
@@ -33,40 +37,34 @@ function ArticleListPage () {
 		}
 	}
 
-	useEffect(() => {
-		getData()
-	}, [limit, skip])
-
 
 	// datatable columns logic =========================
 	const handleDelete = (rowId) => () => {
 		confirmDeletePopup({
 			onConfirm: () => deleteArticle(rowId),
-			onSuccess: () => getData()
+			// onSuccess: () => getData()
 		})
 	}
 
-	const columns = setupColumns({ handleDelete })
+	const tableColumns = setupColumns({ handleDelete })
+
 
 	return <>
 		<PageTitle title="Article List" />
 		<Card
 			title="Article Table"
-			HeaderAction={
-				<Button
+			HeaderAction={<Button
 					title="New Article"
 					to="/article/form"
 					Icon={Plus}
 					className="btn-primary"
-				/>
-			}
+			/>}
 		>
-			<DataTable
-				columns={columns}
-				data={data}
+			<FullDataTable
+				data={tableData}
+				columns={tableColumns}
+				getTableData={getTableData}
 				totalData={totalData}
-				pagination={pagination}
-				onPaginationChange={setPagination}
 				isLoading={isLoading}
 			/>
 		</Card>
