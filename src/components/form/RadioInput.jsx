@@ -75,13 +75,18 @@ function RadioInput ({
 							name={name}
 							type="radio"
 							className={mergeClass(
-								"radio radio-bordered w-full",
+								"radio checked:radio-primary",
 								inputClass,
 								!!error ? "radio-error" : ""
 							)}
+							value={optionItem.value}
 							checked={value === optionItem.value ? true : undefined}
 							{...restProps}
 						/>
+
+						<span className="label-text">
+							{optionItem.label}
+						</span>
 					</label>
 				)}
 			</section>

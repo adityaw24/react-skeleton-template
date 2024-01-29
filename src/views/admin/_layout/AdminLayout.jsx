@@ -23,7 +23,7 @@ function AdminLayout () {
 			<div
 				className={`
 					${isSideMenuOpen ? 'overflow-hidden' : ''}
-					flex h-screen bg-gray-50 dark:bg-gray-900
+					flex h-screen
 				`}
 				// class:overflow-hidden={isSideMenuOpen}
 				// in:fade={{ duration: 200, delay: 250 }}
