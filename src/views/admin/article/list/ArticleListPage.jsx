@@ -1,11 +1,10 @@
 import { useEffect, useState } from "react"
-import { Card, PageTitle, DataTable, Button } from "~/components"
-import { deleteArticle, getArticleList } from "~/services/article-service"
-
-import setupColumns from "./_setupColumns"
-import { confirmDeletePopup, errorPopup } from "~/lib/popup"
 import { Plus } from "lucide-react"
-import FullDataTable from "~/components/table/FullDataTable"
+
+import { PageTitle, Button, Card, FullDataTable, LoadingDots } from "~/components"
+import { deleteArticle, getArticleList } from "~/services/article-service"
+import { confirmDeletePopup, errorPopup } from "~/lib/popup"
+import setupColumns from "./_setupColumns"
 
 
 function ArticleListPage () {
@@ -28,11 +27,9 @@ function ArticleListPage () {
 
 			setTableData(articles.posts)
 			setTotalRecords(articles.total)
-		}
-		catch (err) {
+		} catch (err) {
 			errorPopup(err?.response?.data?.message)
-		}
-		finally {
+		} finally {
 			setIsLoading(false)
 		}
 	}
@@ -51,15 +48,24 @@ function ArticleListPage () {
 
 	return <>
 		<PageTitle title="Article List" />
-		<Card
-			title="Article Table"
-			HeaderAction={<Button
+
+		<Card>
+			<Card.Header>
+				<Card.Title title="Article Table" />
+
+				<LoadingDots
+					label="Please wait..."
+					isLoading={isLoading}
+				/>
+
+				<Button
 					title="New Article"
 					to="/article/form"
 					Icon={Plus}
 					className="btn-primary"
-			/>}
-		>
+				/>
+			</Card.Header>
+
 			<FullDataTable
 				data={tableData}
 				columns={tableColumns}

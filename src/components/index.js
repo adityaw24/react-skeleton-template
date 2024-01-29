@@ -10,3 +10,4 @@ export { default as PageTitle } from './ui/PageTitle'
 
 export * from './table/BasicTable'
 export { default as DataTable } from './table/DataTable'
+export { default as FullDataTable } from './table/FullDataTable'

@@ -1,71 +1,89 @@
 import mergeClass from "~/lib/mergeClass";
 
 /**
- * @typedef {object} 		CardProps
- * @prop {string} 			[title] 			- Judul cardnya, muncul di atas kiri
- * @prop {string} 			[innerClass] 		- Class untuk body/daleman dari card
- * @prop {string} 			[className] 		- Class untuk wrapper/outer dari card
- * @prop {React.ReactNode} 	[children] 			- Isi dari card
- * @prop {React.ReactNode} 	[HeaderAction] 		- Slot action, biasa diisi dengan button, muncul di atas kanan
- * @prop {React.ReactNode} 	[FooterAction] 		- Slot action, biasa diisi dengan button, muncul di bawah kanan
- * @prop {React.ReactNode} 	[Figure] 			- Gambar utama dari cardnya
- */
-
-/**
  * Card yang berfungsi sebagai container/wrapper dari beberapa component
  *
  * @memberof 	Component.UI
  * @alias 		Card
  *
- * @param {CardProps} props
+ * @param {object} 				props
+ * @param {string} 				[props.className] 	- Class untuk wrapper/outer dari card
+ * @param {React.ReactNode} 	[props.children] 	- Isi dari card
  *
  * @example
  * // Basic usage
- * <Card title="Contoh Card">
- * 	<p>Hai Bambang<p>
+ * <Card>
+ * 	<p>this is card body</p>
+ * </Card>
+ *
+ * // With title
+ * <Card>
+ * 	<Card.Header>
+ * 		<Card.Title title="This is card title" />
+ * 	</Card.Header>
+ *
+ * 	<p>this is card body</p>
+ * </Card>
+ *
+ * // With title and action button
+ * <Card>
+ * 	<Card.Header>
+ * 		<Card.Title title="This is card title" />
+ * 		<Button title="Some action button" />
+ * 	</Card.Header>
+ *
+ * 	<p>this is card body</p>
  * </Card>
  */
-function Card ({
-	title = '',
-	innerClass = '',
+function Card({
 	className = '',
 	children = null,
-	HeaderAction = null,
-	FooterAction = null,
-	Figure = null
 }) {
 	return <>
 		<div className={mergeClass("card bg-base-100 shadow-xl", className)}>
-			{Figure}
 			<div className="card-body gap-3">
-				{ !!title || !!HeaderAction
-					? <>
-						<section className="flex items-center justify-between">
-							{ !!title
-								? <h2 className="card-title">
-									{title}
-								</h2>
-							: null }
-
-							{HeaderAction}
-						</section>
-
-						<hr className="mt-1 mb-4 dark:border-gray-600" />
-					</>
-				: null }
-
-				<section className={innerClass}>
-					{children}
-				</section>
-
-				{ !!FooterAction
-					? <section className="card-actions">
-						{FooterAction}
-					</section>
-				: null }
+				{children}
 			</div>
 		</div>
 	</>
 }
+
+
+/**
+ * @memberof Component.UI
+ * @alias Card.Header
+ *
+ * @param {object} 				props
+ * @param {string} 				[props.className] 	- Class untuk wrapper/outer dari card header
+ * @param {React.ReactNode} 	[props.children] 	- Isi dari card header
+ */
+function CardHeader ({ children, className = '' }) {
+	return <>
+		<section className={mergeClass("flex items-center justify-between", className)}>
+			{children}
+		</section>
+
+		<hr className="mt-1 mb-4 dark:border-gray-600" />
+	</>
+}
+
+
+/**
+ * @memberof Component.UI
+ * @alias Card.Title
+ *
+ * @param {object} 	props
+ * @param {string} 	[props.className] 	- Class untuk wrapper/outer dari card header
+ * @param {string} 	[props.title] 		- Isi dari card header
+ */
+function CardTitle({ title, className = '' }) {
+	return <h2 className={mergeClass("card-title", className)}>
+		{title}
+	</h2>
+}
+
+
+Card.Header = CardHeader
+Card.Title = CardTitle
 
 export default Card

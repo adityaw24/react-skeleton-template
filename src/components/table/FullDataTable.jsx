@@ -22,24 +22,22 @@ import {
 import Button from "../form/Button"
 
 /**
- * @typedef {object} FullDatatableProps
- * @prop {object[]} data
- * @prop {object[]} columns
- * @prop {boolean} isLoading
- * @prop {number} totalData
- * @prop {GetTableData} getTableData
- */
-
-/**
  * Versi datatable yang memiliki paginasi, sort, dan search preconfigured
  *
- * @param {FullDatatableProps} props
+ * @param {object} 		props
+ * @prop {object[]} 	props.data 				- data row yang akan dirender di datatable
+ * @prop {object[]} 	props.columns 			- definisi kolom untuk datatable
+ * @prop {boolean} 		props.isLoading 		- state yang menentukan sedang fetching data atau tidak
+ * @prop {number} 		props.totalData 		- total row data diluar batas paginasi
+ * @prop {any} 			[props.refreshTrigger] 	- state yang akan men-trigger refresh data ketika valuenya berubah
+ * @prop {GetTableData} props.getTableData 		- fungsi untuk mendapatkan
  */
 function FullDataTable({
 	data,
 	columns,
 	isLoading,
 	totalData,
+	refreshTrigger = undefined,
 	getTableData,
 }) {
 	const [pagination, setPagination] = useState({
@@ -67,7 +65,7 @@ function FullDataTable({
 			pageIndex,
 			pageSkip: pageSize * pageIndex
 		})
-	}, [pageSize, pageIndex])
+	}, [refreshTrigger, pageSize, pageIndex])
 
 	return (
 		<>

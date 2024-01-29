@@ -4,12 +4,12 @@ import { ChevronLeft } from "lucide-react"
 import { useForm } from "react-hook-form"
 import { yupResolver } from "@hookform/resolvers/yup"
 import { useNavigate, useParams } from "react-router-dom"
+import toast from "react-hot-toast"
 
 import useAuthStore from "~/stores/auth-store"
 import { createArticle, getArticleDetail, updateArticle } from "~/services/article-service"
 import { Button, Card, LoadingDots, PageTitle, TextInput, TextareaInput } from "~/components"
 import { errorPopup } from "~/lib/popup"
-import toast from "react-hot-toast"
 
 function ArticleFormPage () {
 	const { editedId } = useParams()
@@ -44,11 +44,9 @@ function ArticleFormPage () {
 
 			toast.success(`Record successfully ${isEditing ? 'updated' : 'created'}!`)
 			navigate('/article/list')
-		}
-		catch (error) {
+		} catch (error) {
 			errorPopup(error)
-		}
-		finally {
+		} finally {
 			setIsSubmitting(false)
 		}
 	}
@@ -65,11 +63,9 @@ function ArticleFormPage () {
 			setValue('body', fetchedData.body)
 			setValue('tags', fetchedData.tags.join(', '))
 			setValue('reactions', Number(fetchedData.reactions))
-		}
-		catch (err) {
+		} catch (err) {
 			errorPopup(err?.response?.data?.message)
-		}
-		finally {
+		} finally {
 			setIsFetching(false)
 		}
 	}
@@ -81,18 +77,22 @@ function ArticleFormPage () {
 
 	return <>
 		<PageTitle title={isEditing ? "Edit Article" : "Create Article"} />
-		<Card
-			title="Article Form"
-			HeaderAction={<>
-				{isFetching ? <LoadingDots label="Please wait..." /> : null}
+		<Card>
+			<Card.Header>
+				<Card.Title title="Article Form" />
+
+				<LoadingDots
+					label="Please wait..."
+					isLoading={isFetching}
+				/>
 
 				<Button
 					title="Back"
 					Icon={ChevronLeft}
 					to="/article/list"
 				/>
-			</>}
-		>
+			</Card.Header>
+
 			<form
 				onSubmit={handleSubmit(onSubmit)}
 				className="grid gap-6 w-[700px] max-w-full"

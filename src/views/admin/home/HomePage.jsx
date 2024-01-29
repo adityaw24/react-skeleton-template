@@ -6,6 +6,7 @@ function HomePage () {
 
 	return <>
 		<PageTitle title="Homepage" />
+
 		<Card>
 			This is home, Hi {username}
 		</Card>
