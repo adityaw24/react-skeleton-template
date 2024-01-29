@@ -5,7 +5,7 @@ import router from "./router"
 function App() {
 	return <>
 		<RouterProvider router={router} />
-		<Toaster position="bottom-center" />
+		<Toaster position="top-right" />
 	</>
 }
 
