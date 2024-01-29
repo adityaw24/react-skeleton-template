@@ -1,7 +1,7 @@
 /**
  * Component yang menampilkan animasi loading
  *
- * @memberof 	Component.UI
+ * @memberof 	Component._UI
  * @alias 		LoadingDots
  *
  * @param {object} 	props

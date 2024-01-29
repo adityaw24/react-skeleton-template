@@ -3,7 +3,7 @@ import mergeClass from "~/lib/mergeClass";
 /**
  * Card yang berfungsi sebagai container/wrapper dari beberapa component
  *
- * @memberof 	Component.UI
+ * @memberof 	Component._UI
  * @alias 		Card
  *
  * @param {object} 				props
@@ -50,7 +50,7 @@ function Card({
 
 
 /**
- * @memberof Component.UI
+ * @memberof Component._UI
  * @alias Card.Header
  *
  * @param {object} 				props
@@ -69,7 +69,7 @@ function CardHeader ({ children, className = '' }) {
 
 
 /**
- * @memberof Component.UI
+ * @memberof Component._UI
  * @alias Card.Title
  *
  * @param {object} 	props

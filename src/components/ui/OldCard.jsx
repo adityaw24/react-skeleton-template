@@ -14,7 +14,7 @@ import mergeClass from "~/lib/mergeClass";
 /**
  * Card yang berfungsi sebagai container/wrapper dari beberapa component
  *
- * @memberof 	Component.UI
+ * @memberof 	Component._UI
  * @alias 		Card
  *
  * @param {CardProps} props

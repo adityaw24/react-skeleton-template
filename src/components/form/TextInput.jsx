@@ -12,7 +12,7 @@ import mergeClass from "~/lib/mergeClass";
  */
 
 /**
- * @memberof 	Component.Form
+ * @memberof 	Component._Form
  * @alias 		TextInput
  *
  * @param {TextInputProps & React.InputHTMLAttributes<HTMLInputElement>} props

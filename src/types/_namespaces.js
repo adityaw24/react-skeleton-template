@@ -1,14 +1,27 @@
 /** @namespace Component */
-
 /**
  * @memberof Component
- * @namespace Form
+ * @namespace _Form
  */
-
 /**
  * @memberof Component
- * @namespace UI
+ * @namespace _Table
  */
+/**
+ * @memberof Component
+ * @namespace _UI
+ */
+
 
 /** @namespace Service */
+/**
+ * @memberof Service
+ * @namespace _Auth
+ */
+/**
+ * @memberof Service
+ * @namespace _Article
+ */
+
+
 /** @namespace Stores */

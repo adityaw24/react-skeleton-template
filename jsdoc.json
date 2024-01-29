@@ -2,6 +2,7 @@
 	"source": {
 		"include": [
 			"src/components",
+			"src/services",
 			"src/types"
 		],
 		"includePattern": ".+\\.(jsx|js)?$"

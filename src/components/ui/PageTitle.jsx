@@ -1,15 +1,11 @@
 /**
- * @typedef {object} 	PageTitleProps
- * @prop {string} 		props.title 	- Text utama dari halaman
- */
-
-/**
  * Component untuk judul utama pada sebuah halaman
  *
- * @memberof 	Component.UI
+ * @memberof 	Component._UI
  * @alias 		PageTItle
  *
- * @param {PageTitleProps} props
+ * @param {object} props
+ * @param {string} props.title 	- Text utama dari halaman
  *
  * @example
  * // basic usage

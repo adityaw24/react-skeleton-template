@@ -1,5 +1,6 @@
 import {
 	useEffect,
+	useMemo,
 	useState
 } from "react"
 
@@ -19,10 +20,16 @@ import {
 	TableRow,
 } from "./BasicTable"
 
+import { useDebounce, useDebouncedCallback } from 'use-debounce'
+
 import Button from "../form/Button"
+import { SelectInput, TextInput } from "..";
 
 /**
  * Versi datatable yang memiliki paginasi, sort, dan search preconfigured
+ *
+ * @memberof Component._Table
+ * @alias FullDataTable
  *
  * @param {object} 		props
  * @param {object[]} 	props.data 				- data row yang akan dirender di datatable
@@ -40,13 +47,40 @@ function FullDataTable({
 	refreshTrigger = undefined,
 	getTableData,
 }) {
+	// pagination logic ================
 	const [pagination, setPagination] = useState({
 		pageSize: 10,
 		pageIndex: 0,
 	});
 
 	const { pageSize, pageIndex } = pagination;
+	const [debouncedPageIndex] = useDebounce(pageIndex, 500)
 
+	const currentPage = useMemo(() => pageIndex + 1, [pageIndex])
+	const pageSkip = useMemo(() => pageSize * pageIndex, [pageSize, pageIndex])
+	const pageFirstRow = useMemo(() => pageSkip + 1, [pageSkip])
+	const pageLastRow = useMemo(() => pageSkip + pageSize, [pageSkip, pageSize])
+	const pageCount = useMemo(() => Math.round(totalData / pageSize), [totalData, pageSize])
+
+	const handleChangePageSize = e => {
+		table.setPageSize(Number(e.target.value))
+	}
+
+	const handleChangePageIndex = e => {
+		const pageToIndex = Number(e.target.value) - 1
+		table.setPageIndex(pageToIndex)
+	}
+
+
+	// search state =================
+	const [searchValue, setSearchValue] = useState('')
+	const [debouncedSearchValue] = useDebounce(searchValue, 500)
+
+	const handleSearch = e => {
+		setSearchValue(e.target.value)
+	}
+
+	// datatable initialization ==================
 	const table = useReactTable({
 		data,
 		columns,
@@ -54,21 +88,55 @@ function FullDataTable({
 
 		manualPagination: true,
 		state: { pagination },
-		pageCount: Math.round(totalData / pagination.pageSize),
+		pageCount,
 		getPaginationRowModel: getPaginationRowModel(),
 		onPaginationChange: setPagination,
 	})
 
+
+	// call get table data callback, triggered on every state change ================
 	useEffect(() => {
 		getTableData({
 			pageSize,
-			pageIndex,
-			pageSkip: pageSize * pageIndex
+			pageSkip,
+			pageIndex: debouncedPageIndex,
+			searchValue: debouncedSearchValue
 		})
-	}, [refreshTrigger, pageSize, pageIndex])
+	}, [refreshTrigger, pageSize, debouncedPageIndex, debouncedSearchValue])
 
 	return (
 		<>
+			<section className="flex items-center justify-between">
+				<div className="flex items-center gap-2">
+					<span>Page size :</span>
+
+					<SelectInput
+						options={[
+							{ value: '10', label: '10' },
+							{ value: '25', label: '25' },
+							{ value: '50', label: '50' },
+							{ value: '100', label: '100' },
+						]}
+						value={pagination.pageSize.toString()}
+						onChange={handleChangePageSize}
+						disabled={isLoading}
+						className="w-auto"
+						inputClass="select-sm"
+					/>
+				</div>
+
+				<div className="flex items-center gap-2">
+					<span>Search :</span>
+
+					<TextInput
+						className="w-auto"
+						inputClass="input-sm"
+						value={searchValue}
+						onChange={handleSearch}
+					/>
+				</div>
+			</section>
+
 			<Table>
 				<TableHeader>
 					{table.getHeaderGroups().map((headerGroup) => (
@@ -107,29 +175,52 @@ function FullDataTable({
 					) : (
 						<TableRow>
 							<TableCell colSpan={columns.length} className="h-24 text-center">
-								No results.
+								{isLoading ? 'Please wait...' : 'No results.' }
 							</TableCell>
 						</TableRow>
 					)}
 				</TableBody>
 			</Table>
 
-			<div className="flex items-center justify-end space-x-2 py-4">
-				<Button
-					// Icon={ChevronLeft}
-					title="Prev"
-					onClick={() => table.previousPage()}
-					disabled={!table.getCanPreviousPage() || isLoading}
-					className="btn-outline btn-sm"
-				/>
-				<Button
-					// Icon={ChevronRight}
-					title="Next"
-					onClick={() => table.nextPage()}
-					disabled={!table.getCanNextPage() || isLoading}
-					className="btn-outline btn-sm"
-				/>
-			</div>
+
+
+			<section className="flex items-center justify-between py-4">
+				<span className="text-sm text-black/50">
+					Showing {pageFirstRow} to {pageLastRow} of {totalData} entries
+				</span>
+
+				<div className="flex items-center gap-2">
+					<Button
+						// Icon={ChevronLeft}
+						title="Prev"
+						onClick={() => table.previousPage()}
+						disabled={!table.getCanPreviousPage() || isLoading}
+						className="btn-outline btn-sm"
+					/>
+					{/* <span className="text-gray-500/50">|</span> */}
+
+					<TextInput
+						type="number"
+						value={currentPage}
+						onChange={handleChangePageIndex}
+						min={1}
+						max={pageCount}
+						disabled={isLoading}
+						className="w-20"
+						inputClass="input-sm"
+					/>
+
+					{/* <span className="text-gray-500/50">|</span> */}
+					<Button
+						// Icon={ChevronRight}
+						title="Next"
+						onClick={() => table.nextPage()}
+						disabled={!table.getCanNextPage() || isLoading}
+						className="btn-outline btn-sm"
+					/>
+				</div>
+			</section>
+
 		</>
 	)
 }

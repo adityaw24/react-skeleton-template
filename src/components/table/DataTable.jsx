@@ -14,7 +14,7 @@ import {
 	TableRow,
 } from "./BasicTable"
 import Button from "../form/Button"
-import { ChevronLeft, ChevronRight } from "lucide-react"
+// import { ChevronLeft, ChevronRight } from "lucide-react"
 
 function DataTable({
 	columns,

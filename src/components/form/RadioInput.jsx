@@ -21,7 +21,7 @@ import mergeClass from "~/lib/mergeClass";
  */
 
 /**
- * @memberof 	Component.Form
+ * @memberof 	Component._Form
  * @alias 		RadioInput
  *
  * @param {RadioInputProps & React.InputHTMLAttributes<HTMLInputElement>} props
@@ -69,7 +69,7 @@ function RadioInput ({
 
 			<section className="grid gap-3 mt-2">
 				{options.map(optionItem =>
-					<label className="flex items-center gap-3 cursor-pointer">
+					<label key={optionItem.value} className="flex items-center gap-3 cursor-pointer">
 						<input
 							ref={ref}
 							name={name}

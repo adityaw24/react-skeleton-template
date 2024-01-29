@@ -16,14 +16,15 @@ function ArticleListPage () {
 	// fetch inital data logic =============================
 
 	/** @type {GetTableData} */
-	const getTableData = async ({ pageSize, pageSkip }) => {
+	const getTableData = async ({ pageSize, pageSkip, pageIndex, searchValue }) => {
 		try {
 			setIsLoading(true)
 			const articles = await getArticleList({
 				pagination: {
 					limit: pageSize,
 					skip: pageSkip
-				}
+				},
+				search: searchValue
 			})
 
 			setTableData(articles.posts)

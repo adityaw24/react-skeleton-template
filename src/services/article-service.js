@@ -3,6 +3,10 @@ import generateRequestParams from "~/lib/generateRequestParams"
 
 /**
  * fungsi untuk mendapatkan list artikel
+ *
+ * @memberof Service._Article
+ * @alias getArticleList
+ *
  * @param {ListDataRequestOptions} requestParams
  * @returns {Promise< ArticleList >}
  */
@@ -16,6 +20,10 @@ export async function getArticleList(requestParams) {
 
 /**
  * fungsi untuk mendapatkan single article
+ *
+ * @memberof Service._Article
+ * @alias getArticleDetail
+ *
  * @param {string|number} articleId
  * @returns {Promise< Article >}
  */
@@ -27,6 +35,10 @@ export async function getArticleDetail (articleId) {
 
 /**
  * fungsi untuk membuat artikel baru
+ *
+ * @memberof Service._Article
+ * @alias createArticle
+ *
  * @param {Article} formData
  * @returns {Promise< Article >}
  */
@@ -37,6 +49,10 @@ export async function createArticle (formData) {
 
 /**
  * fungsi untuk mengupdate artikel berdasarkan id
+ *
+ * @memberof Service._Article
+ * @alias updateArticle
+ *
  * @param {Article} formData
  * @param {string|number} articleId
  * @returns {Promise< Article >}
@@ -48,6 +64,10 @@ export async function updateArticle (formData, articleId) {
 
 /**
  * fungsi untuk mengupdate artikel berdasarkan id
+ *
+ * @memberof Service._Article
+ * @alias deleteArticle
+ *
  * @param {string|number} articleId
  * @returns {Promise< Article >}
  */

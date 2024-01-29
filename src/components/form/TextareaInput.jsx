@@ -12,7 +12,7 @@ import mergeClass from "~/lib/mergeClass";
  */
 
 /**
- * @memberof 	Component.Form
+ * @memberof 	Component._Form
  * @alias 		TextareaInput
  *
  * @param {TextareaInputProps & React.TextareaHTMLAttributes<HTMLTextAreaElement>} props

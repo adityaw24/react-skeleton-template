@@ -21,7 +21,7 @@ import mergeClass from "~/lib/mergeClass";
  */
 
 /**
- * @memberof 	Component.Form
+ * @memberof 	Component._Form
  * @alias 		SelectInput
  *
  * @param {SelectInputProps & React.SelectHTMLAttributes<HTMLSelectElement>} props
@@ -80,7 +80,7 @@ function SelectInput ({
 					: null}
 
 				{options.map(optionItem =>
-					<option value={optionItem.value}>
+					<option key={optionItem.value} value={optionItem.value}>
 						{optionItem.label}
 					</option>
 				)}

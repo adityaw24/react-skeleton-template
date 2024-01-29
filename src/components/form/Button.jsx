@@ -17,7 +17,7 @@ import { Link } from "react-router-dom";
  * Component button, dipakai seperti tag "button" atau "a".
  * Untuk styling lebih lengkap bisa dilihat di [DaisyUI]{@link https://daisyui.com/components/button/}
  *
- * @memberof 	Component.Form
+ * @memberof 	Component._Form
  * @alias 		Button
  *
  * @param {ButtonProps & React.ButtonHTMLAttributes<HTMLButtonElement> & React.AnchorHTMLAttributes<HTMLAnchorElement>}	props
