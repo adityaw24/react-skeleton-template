@@ -11,6 +11,7 @@ function ArticleListPage () {
 	const [tableData, setTableData] = useState([])
 	const [totalData, setTotalRecords] = useState(0)
 	const [isLoading, setIsLoading] = useState(true)
+	const [toggleRefresh, setToggleRefresh] = useState(false)
 
 	// fetch inital data logic =============================
 
@@ -39,7 +40,7 @@ function ArticleListPage () {
 	const handleDelete = (rowId) => () => {
 		confirmDeletePopup({
 			onConfirm: () => deleteArticle(rowId),
-			// onSuccess: () => getData()
+			onSuccess: () => setToggleRefresh(!toggleRefresh)
 		})
 	}
 
@@ -72,6 +73,7 @@ function ArticleListPage () {
 				getTableData={getTableData}
 				totalData={totalData}
 				isLoading={isLoading}
+				refreshTrigger={toggleRefresh}
 			/>
 		</Card>
 	</>

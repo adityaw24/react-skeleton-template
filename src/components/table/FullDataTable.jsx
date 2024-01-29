@@ -25,12 +25,12 @@ import Button from "../form/Button"
  * Versi datatable yang memiliki paginasi, sort, dan search preconfigured
  *
  * @param {object} 		props
- * @prop {object[]} 	props.data 				- data row yang akan dirender di datatable
- * @prop {object[]} 	props.columns 			- definisi kolom untuk datatable
- * @prop {boolean} 		props.isLoading 		- state yang menentukan sedang fetching data atau tidak
- * @prop {number} 		props.totalData 		- total row data diluar batas paginasi
- * @prop {any} 			[props.refreshTrigger] 	- state yang akan men-trigger refresh data ketika valuenya berubah
- * @prop {GetTableData} props.getTableData 		- fungsi untuk mendapatkan
+ * @param {object[]} 	props.data 				- data row yang akan dirender di datatable
+ * @param {object[]} 	props.columns 			- definisi kolom untuk datatable
+ * @param {boolean} 	props.isLoading 		- state yang menentukan sedang fetching data atau tidak
+ * @param {number} 		props.totalData 		- total row data diluar batas paginasi
+ * @param {any} 		[props.refreshTrigger] 	- state yang akan men-trigger refresh data ketika valuenya berubah
+ * @param {GetTableData} props.getTableData 	- fungsi untuk mendapatkan
  */
 function FullDataTable({
 	data,
