@@ -16,3 +16,10 @@ npm install
 # Run the app
 npm run dev
 ```
+
+## Todo For Readme
+- [ ] Folder File Structure & Naming Convention
+- [ ] Main Dependency List
+- [ ] Code Documentation Guide
+- [ ] Some usage guide
+- [ ] Translate component doc to english
