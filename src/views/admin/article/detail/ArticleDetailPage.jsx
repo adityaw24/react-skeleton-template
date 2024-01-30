@@ -4,7 +4,7 @@ import { ChevronLeft } from "lucide-react";
 
 import { Button, Card, LoadingDots, PageTitle } from "~/components";
 import { getArticleDetail } from "~/services/article-service";
-import { errorPopup } from "~/lib/popup";
+import errorHandler from "~/lib/errorHandler";
 
 
 function ArticleDetailPage () {
@@ -17,7 +17,7 @@ function ArticleDetailPage () {
 			const res = await getArticleDetail(detailId)
 			setArticleDetail(res)
 		} catch (err) {
-			errorPopup(err)
+			errorHandler(err)
 		} finally {
 			setIsFetching(false)
 		}

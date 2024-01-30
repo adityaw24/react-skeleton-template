@@ -3,8 +3,9 @@ import { Plus } from "lucide-react"
 
 import { PageTitle, Button, Card, FullDataTable, LoadingDots } from "~/components"
 import { deleteArticle, getArticleList } from "~/services/article-service"
-import { confirmDeletePopup, errorPopup } from "~/lib/popup"
+import { confirmDeletePopup } from "~/lib/popup"
 import setupColumns from "./_setupColumns"
+import errorHandler from "~/lib/errorHandler"
 
 
 function ArticleListPage () {
@@ -30,7 +31,7 @@ function ArticleListPage () {
 			setTableData(articles.posts)
 			setTotalRecords(articles.total)
 		} catch (err) {
-			errorPopup(err)
+			errorHandler(err)
 		} finally {
 			setIsLoading(false)
 		}

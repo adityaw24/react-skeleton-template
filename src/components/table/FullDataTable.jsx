@@ -175,7 +175,7 @@ function FullDataTable({
 					) : (
 						<TableRow>
 							<TableCell colSpan={columns.length} className="h-24 text-center">
-								{isLoading ? 'Please wait...' : 'No results.' }
+								{isLoading ? 'Loading Data...' : 'No results.' }
 							</TableCell>
 						</TableRow>
 					)}

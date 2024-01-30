@@ -1,15 +1,15 @@
 import { useEffect, useState } from "react"
 import * as yup from 'yup'
-import { ChevronLeft } from "lucide-react"
+import toast from "react-hot-toast"
 import { useForm } from "react-hook-form"
+import { ChevronLeft } from "lucide-react"
 import { yupResolver } from "@hookform/resolvers/yup"
 import { useNavigate, useParams } from "react-router-dom"
-import toast from "react-hot-toast"
 
-import useAuthStore from "~/stores/auth-store"
-import { createArticle, getArticleDetail, updateArticle } from "~/services/article-service"
 import { Button, Card, LoadingDots, PageTitle, TextInput, TextareaInput } from "~/components"
-import { errorPopup } from "~/lib/popup"
+import { createArticle, getArticleDetail, updateArticle } from "~/services/article-service"
+import useAuthStore from "~/stores/auth-store"
+import errorHandler from "~/lib/errorHandler"
 
 function ArticleFormPage () {
 	const { editedId } = useParams()
@@ -44,8 +44,8 @@ function ArticleFormPage () {
 
 			toast.success(`Record successfully ${isEditing ? 'updated' : 'created'}!`)
 			navigate('/article/list')
-		} catch (error) {
-			errorPopup(error)
+		} catch (err) {
+			errorHandler(err)
 		} finally {
 			setIsSubmitting(false)
 		}
@@ -64,7 +64,7 @@ function ArticleFormPage () {
 			setValue('tags', fetchedData.tags.join(', '))
 			setValue('reactions', Number(fetchedData.reactions))
 		} catch (err) {
-			errorPopup(err)
+			errorHandler(err)
 		} finally {
 			setIsFetching(false)
 		}

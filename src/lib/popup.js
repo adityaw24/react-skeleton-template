@@ -1,6 +1,6 @@
-import { AxiosError } from 'axios';
-import toast from 'react-hot-toast';
 import Swal from 'sweetalert2'
+import toast from 'react-hot-toast'
+import errorHandler from './errorHandler'
 
 /**
  * fungsi untuk konfirmasi sebelum hapus suatu data
@@ -24,38 +24,14 @@ export function confirmDeletePopup(callbacks) {
 			try {
 				await callbacks.onConfirm()
 			} catch (error) {
-				errorPopup(error)
+				errorHandler(error)
 			}
 		}
 	})
 	.then((result) => {
 		if (result.isConfirmed) {
-			Swal.fire({
-				title: "Deleted!",
-				text: "Record has been deleted.",
-				icon: "success",
-			})
+			toast.success('Record has been deleted.')
 			if (callbacks.onSuccess) callbacks?.onSuccess()
 		}
 	});
-}
-
-/**
- * fungsi untuk popup ketika terjadi error
- * @param {Error | object | string} err
- */
-export function errorPopup(err) {
-	if (import.meta.env.DEV) console.log(err)
-
-	const msg = err?.response?.data?.message || err?.toString() || 'Something went wrong :('
-
-	toast.error(msg, {
-		duration: 4000
-	})
-
-	// Swal.fire({
-	// 	icon: "error",
-	// 	title: "Error",
-	// 	text: err || 'Something went wrong :('
-	// });
 }

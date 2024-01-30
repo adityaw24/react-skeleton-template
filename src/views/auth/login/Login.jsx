@@ -6,12 +6,12 @@ import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import * as yup from 'yup';
 import { yupResolver } from "@hookform/resolvers/yup"
+import { useNavigate } from 'react-router-dom';
 
 import { Button, TextInput } from "~/components"
 import { loginProcess } from "~/services/auth-service"
-import { errorPopup } from "~/lib/popup"
 import useAuthStore from '~/stores/auth-store';
-import { useNavigate } from 'react-router-dom';
+import errorHandler from '~/lib/errorHandler';
 
 
 function Login() {
@@ -41,7 +41,7 @@ function Login() {
 			navigate('/')
 		}
 		catch (err) {
-			errorPopup(err)
+			errorHandler(err)
 		}
 		finally {
 			setIsSubmitting(false)

@@ -5,7 +5,12 @@ import router from "./router"
 function App() {
 	return <>
 		<RouterProvider router={router} />
-		<Toaster position="top-right" />
+		<Toaster
+			position="top-right"
+			toastOptions={{
+				className: "ring ring-base-300 !bg-base-100/40 !backdrop-blur !text-base-content",
+			}}
+		/>
 	</>
 }
 
