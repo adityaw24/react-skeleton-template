@@ -1,6 +1,6 @@
 # React Skeleton Template
 
-This project contain skeleton for creating app with react. the skeleton has template preconfigured with react router, documentation for component with jsdoc, and some crud example with dummy api.
+This project contain skeleton for creating app with react. the skeleton has template using tailwind + daisyui preconfigured with react router, documentation for component with jsdoc, and some crud example with dummy api.
 
 ## Installation & Usage
 ```bash
