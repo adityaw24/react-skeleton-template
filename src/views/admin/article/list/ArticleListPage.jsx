@@ -4,8 +4,8 @@ import { Plus } from "lucide-react"
 import { PageTitle, Button, Card, FullDataTable, LoadingDots } from "~/components"
 import { deleteArticle, getArticleList } from "~/services/article-service"
 import { confirmDeletePopup } from "~/lib/popup"
-import setupColumns from "./_setupColumns"
 import errorHandler from "~/lib/errorHandler"
+import setupColumns from "./_setupColumns"
 
 
 function ArticleListPage () {

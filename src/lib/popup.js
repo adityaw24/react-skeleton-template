@@ -4,6 +4,10 @@ import errorHandler from './errorHandler'
 
 /**
  * fungsi untuk konfirmasi sebelum hapus suatu data
+ *
+ * @memberof Lib
+ * @alias confirmDeletePopup
+ *
  * @param {object} callbacks
  * @param {Function} callbacks.onConfirm - fungsi ketika tombol konfirmasi ditekan
  * @param {Function} [callbacks.onSuccess] - optional, fungsi ketika onConfirm() berhasil

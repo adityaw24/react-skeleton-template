@@ -1,5 +1,9 @@
 /**
  * fungsi untuk mapping parameter request sesuai dengan spec API
+ *
+ * @memberof Lib
+ * @alias generateRequestParams
+ *
  * @param {ListDataRequestOptions} requestParams
  * @returns {ListDataRequestParams}
  */

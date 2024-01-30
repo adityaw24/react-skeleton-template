@@ -2,6 +2,10 @@ import toast from "react-hot-toast"
 
 /**
  * fungsi untuk popup ketika terjadi error
+ *
+ * @memberof Lib
+ * @alias errorHandler
+ *
  * @param {Error | object | string} err
  */
 export default function errorHandler(err) {

@@ -3,6 +3,10 @@ import { twMerge } from "tailwind-merge";
 
 /**
  * fungsi untuk menggabungkan class tailwind dan menghilangkan duplikat atau conflict
+ *
+ * @memberof Lib
+ * @alias mergeClass
+ *
  * @param {...string} inputs
  * @returns {string}
  */

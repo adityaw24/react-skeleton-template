@@ -24,4 +24,4 @@
  */
 
 
-/** @namespace Stores */
+/** @namespace Lib */
