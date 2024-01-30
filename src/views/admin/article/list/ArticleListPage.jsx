@@ -30,7 +30,7 @@ function ArticleListPage () {
 			setTableData(articles.posts)
 			setTotalRecords(articles.total)
 		} catch (err) {
-			errorPopup(err?.response?.data?.message)
+			errorPopup(err)
 		} finally {
 			setIsLoading(false)
 		}

@@ -1,3 +1,4 @@
+import { AxiosError } from 'axios';
 import toast from 'react-hot-toast';
 import Swal from 'sweetalert2'
 
@@ -41,12 +42,14 @@ export function confirmDeletePopup(callbacks) {
 
 /**
  * fungsi untuk popup ketika terjadi error
- * @param {*} err
+ * @param {Error | object | string} err
  */
 export function errorPopup(err) {
 	if (import.meta.env.DEV) console.log(err)
 
-	toast.error(err || 'Something went wrong :(', {
+	const msg = err?.response?.data?.message || err?.toString() || 'Something went wrong :('
+
+	toast.error(msg, {
 		duration: 4000
 	})
 

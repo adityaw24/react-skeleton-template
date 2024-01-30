@@ -64,7 +64,7 @@ function ArticleFormPage () {
 			setValue('tags', fetchedData.tags.join(', '))
 			setValue('reactions', Number(fetchedData.reactions))
 		} catch (err) {
-			errorPopup(err?.response?.data?.message)
+			errorPopup(err)
 		} finally {
 			setIsFetching(false)
 		}

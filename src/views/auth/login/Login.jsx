@@ -41,7 +41,7 @@ function Login() {
 			navigate('/')
 		}
 		catch (err) {
-			errorPopup(err?.response?.data?.message)
+			errorPopup(err)
 		}
 		finally {
 			setIsSubmitting(false)
