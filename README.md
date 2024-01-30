@@ -1,8 +1,18 @@
-# React + Vite
+# React Skeleton Template
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project contain skeleton for creating app with react. the skeleton has template preconfigured with react router, documentation for component with jsdoc, and some crud example with dummy api.
 
-Currently, two official plugins are available:
+## Installation & Usage
+```bash
+# Clone or download this repo
+git clone https://github.com/AbidKhairyAK/react-skeleton-template.git
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+# Enter the cloned folder
+cd react-skeleton-template
+
+# Install dependencies
+npm install
+
+# Run the app
+npm run dev
+```
