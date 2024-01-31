@@ -12,7 +12,6 @@
  * @namespace _UI
  */
 
-
 /** @namespace Service */
 /**
  * @memberof Service
@@ -22,6 +21,9 @@
  * @memberof Service
  * @namespace _Article
  */
-
+/**
+ * @memberof Service
+ * @namespace _Product
+ */
 
 /** @namespace Lib */
